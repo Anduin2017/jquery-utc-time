@@ -27,10 +27,11 @@ Create an element.
 </p>
 ```
 
-Add change it like this.
+And change it like this.
 
 ```html
 <p data-utc-time="9/12/2018 10:12:24 AM"><!-- In your tag the time shall be an UTC time -->
+  
 </p>
 ```
 
