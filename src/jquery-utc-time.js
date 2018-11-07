@@ -23,7 +23,8 @@ $(document).ready(function () {
         } else {
             return date.toLocaleDateString();;
         }
-    }
+    };
+    
     var initTime = function () {
         $('*[data-utc-time]').each(function (t) {
             var timefield = $(this);
@@ -41,14 +42,11 @@ $(document).ready(function () {
                 timefield.tooltip();
             }
         });
-    }
+    };
     
-    initTime();
     var loop = function () {
-        setTimeout(() => {
-            initTime();
-            loop();
-        }, 1000);
-    }
+        initTime();
+        setTimeout(loop, 1000);
+    };
     loop();
 });
