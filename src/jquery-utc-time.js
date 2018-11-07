@@ -18,26 +18,37 @@ $(document).ready(function () {
         if (interval > 1) {
             return interval + " minutes ago";
         }
-        if (interval > 0) {
+        if (interval >= 0) {
             return Math.floor(seconds) + " seconds ago";
         } else {
             return date.toLocaleDateString();;
         }
     }
-    $('*[data-utc-time]').each(function (t) {
-        var timefield = $(this);
-        var timevalue = timefield.attr('data-utc-time');
-        if (!timevalue.endsWith(' UTC')) {
-            timevalue = timevalue + ' UTC';
-        }
-        var date = new Date(timevalue);
-        var text = timeSince(date);
-        timefield.html(text);
-        if (timefield.tooltip) {
-            timefield.attr('data-toggle', 'tooltip');
-            timefield.attr('data-trigger', 'hover');
-            timefield.attr('data-title', date.toLocaleString());
-            timefield.tooltip();
-        }
-    });
+    var initTime = function () {
+        $('*[data-utc-time]').each(function (t) {
+            var timefield = $(this);
+            var timevalue = timefield.attr('data-utc-time');
+            if (!timevalue.endsWith(' UTC')) {
+                timevalue = timevalue + ' UTC';
+            }
+            var date = new Date(timevalue);
+            var text = timeSince(date);
+            timefield.html(text);
+            if (timefield.tooltip) {
+                timefield.attr('data-toggle', 'tooltip');
+                timefield.attr('data-trigger', 'hover');
+                timefield.attr('data-title', date.toLocaleString());
+                timefield.tooltip();
+            }
+        });
+    }
+    
+    initTime();
+    var loop = function () {
+        setTimeout(() => {
+            initTime();
+            loop();
+        }, 1000);
+    }
+    loop();
 });
