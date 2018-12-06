@@ -35,6 +35,19 @@ And change it like this.
 </p>
 ```
 
+Add init jquery-utc-time
+
+```html
+<script>
+    $(this).initUTCTime({
+        daysAgo: '天前',
+        hoursAgo: '小时前',
+        minutesAgo: '分钟前',
+        secondsAgo: '秒前',
+    });
+</script>
+```
+
 And when it starts, it shows like this.
 
 ![jquery-utc-time running](https://oss.aiursoft.com/MyPersonalFiles/Untitled.png)
