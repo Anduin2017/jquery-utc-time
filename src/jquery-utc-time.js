@@ -29,7 +29,7 @@
             }
             if (interval >= 0) {
                 if(settings.secondsAgo) {
-                    return interval + settings.secondsAgo;
+                    return Math.floor(seconds) + settings.secondsAgo;
                 }
                 return Math.floor(seconds) + " seconds ago";
             } else {
