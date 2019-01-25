@@ -68,5 +68,8 @@ And when it starts, it shows like this.
 
         // Localization options. Default is ' seconds ago'
         secondsAgo: '秒前',
+
+        // Always display time and date not `some time` ago.
+        disableAgo: false
     });
 ```
