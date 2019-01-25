@@ -79,8 +79,9 @@
                 if(settings.disableAgo) {
                     if (settings.format) {
                         text = date.Format(settings.format);
+                    } else {
+                        text = date.toLocaleDateString();;
                     }
-                    text = date.toLocaleDateString();;
                 }
                 timefield.html(text);
                 if (timefield.tooltip) {
