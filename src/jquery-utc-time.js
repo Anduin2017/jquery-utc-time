@@ -1,5 +1,8 @@
 (function ($) {
     $.fn.initUTCTime = function (settings) {
+        if(settings == null || settings == undefined) {
+            settings = { };
+        }
         Date.prototype.Format = function (fmt) {
             var o = {
                 "M+": this.getMonth() + 1,
@@ -73,6 +76,12 @@
                 }
                 var date = new Date(timevalue);
                 var text = timeSince(date);
+                if(settings.disableAgo) {
+                    if (settings.format) {
+                        text = date.Format(settings.format);
+                    }
+                    text = date.toLocaleDateString();;
+                }
                 timefield.html(text);
                 if (timefield.tooltip) {
                     timefield.attr('data-toggle', 'tooltip');
