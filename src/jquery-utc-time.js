@@ -79,6 +79,8 @@
                 if (isNaN(date.getTime())) {
                     if (!sourcevalue.endsWith('Z')) {
                         timevalue = sourcevalue + 'Z';
+                    } else {
+                        timevalue = sourcevalue;
                     }
                     var date = new Date(timevalue);
                 }
