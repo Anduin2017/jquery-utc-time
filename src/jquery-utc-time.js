@@ -70,11 +70,18 @@
             }
             $('*[' + settings.attr + ']').each(function (t) {
                 var timefield = $(this);
-                var timevalue = timefield.attr(settings.attr);
-                if (!timevalue.endsWith(' UTC')) {
-                    timevalue = timevalue + ' UTC';
+                var sourcevalue = timefield.attr(settings.attr);
+                var timevalue = sourcevalue;
+                if (!sourcevalue.endsWith(' UTC')) {
+                    timevalue = sourcevalue + ' UTC';
                 }
                 var date = new Date(timevalue);
+                if (isNaN(date.getTime())) {
+                    if (!sourcevalue.endsWith('Z')) {
+                        timevalue = sourcevalue + 'Z';
+                    }
+                    var date = new Date(timevalue);
+                }
                 var text = timeSince(date);
                 if(settings.disableAgo) {
                     if (settings.format) {
