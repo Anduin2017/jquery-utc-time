@@ -50,6 +50,7 @@ And when it starts, it shows like this.
 ## API
 
 ```javascript
+    // Init with loop
     $(this).initUTCTime({
         // We will try to select elements using the attr value. Default value is 'data-utc-time'.
         attr: 'data-utc-time',
@@ -72,4 +73,9 @@ And when it starts, it shows like this.
         // Always display time and date not `some time` ago.
         disableAgo: false
     });
+```
+
+```javascript
+    // Tripgger force update.
+    $(this).initUTCTimeOnce();
 ```

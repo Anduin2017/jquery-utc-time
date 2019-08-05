@@ -1,6 +1,6 @@
 {
   "name": "jquery-utc-time",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "A jquery plugin which converts UTC time to local time easily.",
   "main": "index.js",
   "scripts": {
