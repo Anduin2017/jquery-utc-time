@@ -6,6 +6,8 @@ A jquery plugin which converts UTC time to local time easily.
 
 ## How to install
 
+### Download from NPM
+
 ```bash
 $ npm install jquery-utc-time
 ```
@@ -15,6 +17,14 @@ And add your reference:
 ```html
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/jquery-utc-time/src/jquery-utc-time.js"></script>
+```
+
+### Use via CDN
+
+Add your reference:
+
+```html
+<script src="https://ui.cdn.aiursoft.com/node_modules/jquery-utc-time/dist/jquery-utc-time.min.js"></script>
 ```
 
 ## How to use
