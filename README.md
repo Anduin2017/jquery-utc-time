@@ -81,7 +81,10 @@ And when it starts, it shows like this.
         secondsAgo: '秒前',
 
         // Always display time and date not `some time` ago.
-        disableAgo: false
+        disableAgo: false,
+
+        // Always disable the hover effect.
+        disableHover: false
     });
 ```
 

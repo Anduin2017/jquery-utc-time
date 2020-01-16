@@ -74,7 +74,7 @@
                 }
             }
             timefield.html(text);
-            if (timefield.tooltip) {
+            if (timefield.tooltip && !savedSettings.disableHover) {
                 timefield.attr('data-toggle', 'tooltip');
                 timefield.attr('data-trigger', 'hover');
                 timefield.attr('data-title', date.toLocaleString());
