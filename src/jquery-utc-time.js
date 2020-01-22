@@ -1,57 +1,56 @@
 (function ($) {
 
-    var savedSettings = null;
-
-    var timeSince = function (date) {
+    var timeSince = function (date, settings) {
         var seconds = Math.floor((new Date() - date) / 1000);
         var interval = Math.floor(seconds / 2592000);
         if (interval > 1) {
-            if (savedSettings.format) {
-                return date.Format(savedSettings.format);
+            if (settings.format) {
+                return date.Format(settings.format);
             }
             return date.toLocaleDateString();;
         }
         interval = Math.floor(seconds / 86400);
         if (interval > 1) {
-            if (savedSettings.daysAgo) {
-                return interval + savedSettings.daysAgo;
+            if (settings.daysAgo) {
+                return interval + settings.daysAgo;
             }
             return interval + " days ago";
         }
         interval = Math.floor(seconds / 3600);
         if (interval > 1) {
-            if (savedSettings.hoursAgo) {
-                return interval + savedSettings.hoursAgo;
+            if (settings.hoursAgo) {
+                return interval + settings.hoursAgo;
             }
             return interval + " hours ago";
         }
         interval = Math.floor(seconds / 60);
         if (interval > 1) {
-            if (savedSettings.minutesAgo) {
-                return interval + savedSettings.minutesAgo;
+            if (settings.minutesAgo) {
+                return interval + settings.minutesAgo;
             }
             return interval + " minutes ago";
         }
         if (interval >= 0) {
-            if (savedSettings.secondsAgo) {
-                return Math.floor(seconds) + savedSettings.secondsAgo;
+            if (settings.secondsAgo) {
+                return Math.floor(seconds) + settings.secondsAgo;
             }
             return Math.floor(seconds) + " seconds ago";
         } else {
-            if (savedSettings.format) {
-                return date.Format(savedSettings.format);
+            if (settings.format) {
+                return date.Format(settings.format);
             }
             return date.toLocaleDateString();;
         }
     };
 
-    var initTime = function () {
-        if (!savedSettings.attr) {
-            savedSettings.attr = 'data-utc-time'
+    var initTime = function (settings) {
+        alert();
+        if (!settings.attr) {
+            settings.attr = 'data-utc-time'
         }
-        $('*[' + savedSettings.attr + ']').each(function (t) {
+        $('*[' + settings.attr + ']').each(function (t) {
             var timefield = $(this);
-            var sourcevalue = timefield.attr(savedSettings.attr);
+            var sourcevalue = timefield.attr(settings.attr);
             var timevalue = sourcevalue;
             if (!sourcevalue.endsWith(' UTC')) {
                 timevalue = sourcevalue + ' UTC';
@@ -65,16 +64,16 @@
                 }
                 var date = new Date(timevalue);
             }
-            var text = timeSince(date);
-            if(savedSettings.disableAgo) {
-                if (savedSettings.format) {
-                    text = date.Format(savedSettings.format);
+            var text = timeSince(date, settings);
+            if(settings.disableAgo) {
+                if (settings.format) {
+                    text = date.Format(settings.format);
                 } else {
                     text = date.toLocaleDateString();;
                 }
             }
             timefield.html(text);
-            if (timefield.tooltip && !savedSettings.disableHover) {
+            if (timefield.tooltip && !settings.disableHover) {
                 timefield.attr('data-toggle', 'tooltip');
                 timefield.attr('data-trigger', 'hover');
                 timefield.attr('data-title', date.toLocaleString());
@@ -105,16 +104,11 @@
         if(settings == null || settings == undefined) {
             settings = { };
         }
-        savedSettings = settings;
 
         var loop = function () {
-            initTime();
+            initTime(settings);
             setTimeout(loop, 1000);
         };
         loop();
-    }
-
-    $.fn.initUTCTimeOnce = function () {
-        initTime();
     }
 }(jQuery))
