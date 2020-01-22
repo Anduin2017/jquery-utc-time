@@ -44,7 +44,6 @@
     };
 
     var initTime = function (settings) {
-        alert();
         if (!settings.attr) {
             settings.attr = 'data-utc-time'
         }
