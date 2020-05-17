@@ -1,17 +1,15 @@
-<p data-utc="2019/1/25 2:34:11"></p>
-<p data-utc="2019-08-05T10:42:29.2"></p>
+<p data-utc="2020/5/15 2:34:11"></p>
+<p data-utc="2020-05-17T06:05:29.2"></p>
 
 <script src="node_modules/jquery/dist/jquery.js"></script>
-<script src="src/jquery-utc-time.js"></script>
+<script src="dist/jquery-utc-time.min.js"></script>
 <script>
-    $(this).initUTCTime({
+    new UtcTime({
         attr: 'data-utc',
         format: 'yyyy年 MM月 dd日 hh:mm:ss',
         daysAgo: '天前',
         hoursAgo: '小时前',
         minutesAgo: '分钟前',
         secondsAgo: '秒前'
-        //disableAgo: false
-        //disableHover: false
     });
 </script>

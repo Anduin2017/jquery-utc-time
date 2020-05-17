@@ -16,7 +16,13 @@ And add your reference:
 
 ```html
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/jquery-utc-time/src/jquery-utc-time.js"></script>
+<script src="node_modules/jquery-utc-time/dist/jquery-utc-time.min.js"></script>
+```
+
+Or using es6:
+
+```javascript
+import 'jquery-utc-time';
 ```
 
 ### Use via CDN
@@ -49,7 +55,7 @@ Add init jquery-utc-time
 
 ```html
 <script>
-    $(this).initUTCTime({ });
+    new UtcTime({ });
 </script>
 ```
 
@@ -61,7 +67,7 @@ And when it starts, it shows like this.
 
 ```javascript
     // Init with loop
-    $(this).initUTCTime({
+    new UtcTime({
         // We will try to select elements using the attr value. Default value is 'data-utc-time'.
         attr: 'data-utc-time',
 
@@ -84,11 +90,9 @@ And when it starts, it shows like this.
         disableAgo: false,
 
         // Always disable the hover effect.
-        disableHover: false
-    });
-```
+        disableHover: false,
 
-```javascript
-    // Tripgger force update.
-    $(this).initUTCTimeOnce();
+        // Disable auto update the value by seconds.
+        disableAutoUpdate: false
+    });
 ```
