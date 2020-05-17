@@ -1,6 +1,6 @@
 {
   "name": "jquery-utc-time",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A jquery plugin which converts UTC time to local time easily.",
   "scripts": {
     "build": "webpack"
