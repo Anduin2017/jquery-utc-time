@@ -59,9 +59,7 @@ Add init jquery-utc-time
 </script>
 ```
 
-And when it starts, it shows like this.
-
-![jquery-utc-time running](https://oss.aiursoft.com/MyPersonalFiles/Untitled.png)
+And open it now! The time will be converted to local time.
 
 ## API
 
