@@ -22,7 +22,7 @@ And add your reference:
 Or using es6:
 
 ```javascript
-import 'jquery-utc-time';
+import UtcTime from 'jquery-utc-time';
 ```
 
 ### Use via CDN
@@ -55,11 +55,7 @@ Add init jquery-utc-time
 
 ```html
 <script>
-    new UtcTime({
-        onSet: function(element) {
-            $(element).tooltip();
-        }
-    });
+    new UtcTime({ });
 </script>
 ```
 
@@ -97,4 +93,14 @@ And open it now! The time will be converted to local time.
         // Disable auto update the value by seconds.
         disableAutoUpdate: false
     });
+```
+
+For example, to init bootstrap tooltip:
+
+```javascript
+new UtcTime({
+    onSet: function(element) {
+        $(element).tooltip();
+    }
+});
 ```
