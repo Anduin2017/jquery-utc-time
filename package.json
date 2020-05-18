@@ -12,10 +12,7 @@
   "keywords": [
     "jquery"
   ],
-  "main": "dist/jquery-utc-time.min.js",
-  "files": [
-    "dist/jquery-utc-time.min.js"
-  ],
+  "main": "dist/jquery-utc-time.js",
   "author": "anduin@aiursoft.com",
   "license": "MIT",
   "homepage": "https://github.com/Anduin2017/jquery-utc-time#readme",
