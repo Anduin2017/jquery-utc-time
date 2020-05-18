@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'bootstrap/js/src/tooltip';
 
 class UtcTime {
 
