@@ -13,11 +13,11 @@ module.exports = {
         libraryExport: 'default',
         libraryTarget: 'umd'
     },
-    module: {
-        rules: [
-            {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
-        ]
-    },
+    // module: {
+    //     rules: [
+    //         {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
+    //     ]
+    // },
     optimization: {
         minimize: production,
         minimizer: [
