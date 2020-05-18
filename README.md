@@ -55,7 +55,11 @@ Add init jquery-utc-time
 
 ```html
 <script>
-    new UtcTime({ });
+    new UtcTime({
+        onSet: function(element) {
+            $(element).tooltip();
+        }
+    });
 </script>
 ```
 
@@ -88,7 +92,7 @@ And open it now! The time will be converted to local time.
         disableAgo: false,
 
         // Always disable the hover effect.
-        disableHover: false,
+        onSet: function(element) { },
 
         // Disable auto update the value by seconds.
         disableAutoUpdate: false

@@ -1,15 +1,27 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
+const production = process.env.NODE_ENV === 'production' || false;
 
-module.exports = [
-  {
-    entry: './src/jquery-utc-time.js',
-    externals: { jquery: 'jQuery', bootstrap: 'bootstrap', popper: 'popper' },
-    mode: "production",
+module.exports = {
+    entry: ['./src/jquery-utc-time.js'],
+    mode: 'production',
     output: {
-      filename: 'jquery-utc-time.min.js',
-      path: path.resolve(__dirname, 'dist'),
-      libraryTarget: 'umd',
-      globalObject: 'this'
+        filename: production ? 'jquery-utc-time.min.js' : 'jquery-utc-time.js',
+        path: path.resolve(__dirname, 'dist'),
+        globalObject: 'this',
+        library: 'UtcTime',
+        libraryExport: 'default',
+        libraryTarget: 'umd'
+    },
+    module: {
+        rules: [
+            {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
+        ]
+    },
+    optimization: {
+        minimize: production,
+        minimizer: [
+          new TerserPlugin({ })
+        ]
     }
-  }
-];
+};

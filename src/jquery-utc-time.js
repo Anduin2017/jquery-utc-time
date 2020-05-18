@@ -1,6 +1,3 @@
-import $ from 'jquery';
-import 'bootstrap/js/src/tooltip';
-
 class UtcTime {
 
     constructor(settings) {
@@ -12,7 +9,7 @@ class UtcTime {
             minutesAgo: ' minutes ago',
             secondsAgo: ' seconds ago',
             disableAgo: false,
-            disableHover: false,
+            onSet: function (obj) { },
             disableAutoUpdate: false
         };
         Object.assign(defaultSettings, settings);
@@ -81,9 +78,8 @@ class UtcTime {
     }
 
     initTime(settings, self) {
-        $('*[' + settings.attr + ']').each(function (t) {
-            let timefield = $(this);
-            let sourcevalue = timefield.attr(settings.attr);
+        document.querySelectorAll('*[' + settings.attr + ']').forEach(timefield => {
+            let sourcevalue = timefield.getAttribute(settings.attr);
             let date = self.getDate(sourcevalue);
             let text = self.timeSince(date, settings);
             if (settings.disableAgo) {
@@ -93,13 +89,11 @@ class UtcTime {
                     text = date.toLocaleDateString();;
                 }
             }
-            timefield.html(text);
-            if (timefield.tooltip && !settings.disableHover) {
-                timefield.attr('data-toggle', 'tooltip');
-                timefield.attr('data-trigger', 'hover');
-                timefield.attr('data-title', date.toLocaleString());
-                timefield.tooltip();
-            }
+            timefield.innerHTML = text;
+            timefield.setAttribute('data-toggle', 'tooltip');
+            timefield.setAttribute('data-trigger', 'hover');
+            timefield.setAttribute('data-title', date.toLocaleString());
+            settings.onSet(timefield);
         });
     };
 
@@ -124,4 +118,4 @@ class UtcTime {
     }
 }
 
-export { UtcTime }
+export default UtcTime
