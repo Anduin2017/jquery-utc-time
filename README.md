@@ -87,7 +87,7 @@ And open it now! The time will be converted to local time.
         // Always display time and date not `some time` ago.
         disableAgo: false,
 
-        // Always disable the hover effect.
+        // After the content is replaced.
         onSet: function(element) { },
 
         // Disable auto update the value by seconds.
