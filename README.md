@@ -9,7 +9,7 @@ A jquery plugin which converts UTC time to local time easily.
 ### Download from NPM
 
 ```bash
-$ npm install jquery-utc-time
+npm install jquery-utc-time
 ```
 
 And add your reference:
