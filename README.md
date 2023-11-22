@@ -3,6 +3,7 @@
 A jquery plugin which converts UTC time to local time easily.
 
 [![npm](https://img.shields.io/npm/v/jquery-utc-time.svg?style=flat)](https://www.npmjs.com/package/jquery-utc-time)
+[![ManHours](https://manhours.aiursoft.cn/gitlab/gitlab.aiursoft.cn/anduin/jQuery-UTC-time)](https://gitlab.aiursoft.cn/anduin/jQuery-UTC-time/-/commits/master?ref_type=heads)
 
 ## How to install
 
