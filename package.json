@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.aiursoft.cn/anduin/jquery-utc-time"
+    "url": "git+https://gitlab.aiursoft.com/anduin/jquery-utc-time"
   },
   "keywords": [
     "jquery"
@@ -15,7 +15,7 @@
   "main": "dist/jquery-utc-time.js",
   "author": "anduin@aiursoft.com",
   "license": "MIT",
-  "homepage": "https://gitlab.aiursoft.cn/anduin/jquery-utc-time",
+  "homepage": "https://gitlab.aiursoft.com/anduin/jquery-utc-time",
   "devDependencies": {
     "terser-webpack-plugin": "^5.3.9",
     "webpack": "^5.86.0",
